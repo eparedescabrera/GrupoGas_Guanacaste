@@ -41,6 +41,7 @@ export const DELIVERY_ROUTES = [
     id: 'cobano',
     name: 'Cóbano',
     label: 'Ruta Cóbano',
+    active: false,
     region: 'Península de Nicoya · Puntarenas',
     description:
       'Cobertura en Cóbano y comunidades aledañas de la península. Entregas programadas con unidades equipadas para zona costera y rural.',

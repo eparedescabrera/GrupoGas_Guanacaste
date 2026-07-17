@@ -47,23 +47,23 @@ export default function PhotoGallery({ photos = [], title }) {
         whileInView="show"
         viewport={{ once: true, margin: '0px 0px -10% 0px' }}
         variants={staggerContainer(0.05)}
-        className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5"
+        className="columns-2 gap-3 sm:columns-3 lg:columns-5"
       >
         {photos.map((photo, i) => (
           <motion.button
             key={photo.src}
             type="button"
             variants={staggerItem}
-            whileHover={{ scale: 1.04, y: -3 }}
+            whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => setOpenIndex(i)}
-            className="group relative aspect-[3/4] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-soft"
+            className="group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-soft"
           >
             <img
               src={photo.src}
               alt={photo.alt}
               loading="lazy"
-              className="h-full w-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
+              className="block h-auto w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <span className="absolute inset-0 bg-slate-900/0 transition-colors duration-300 group-hover:bg-slate-900/15" />
           </motion.button>

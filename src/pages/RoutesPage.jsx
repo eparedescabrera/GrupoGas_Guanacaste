@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { AnimatePresence, motion } from 'framer-motion'
-import { MapPin, Route, ShieldCheck, Truck } from 'lucide-react'
+import { AlertTriangle, MapPin, Route, ShieldCheck, Truck } from 'lucide-react'
 import Button from '../components/ui/Button.jsx'
 import Container from '../components/ui/Container.jsx'
 import PhotoGallery from '../components/ui/PhotoGallery.jsx'
@@ -16,9 +16,12 @@ import { staggerContainer, staggerItem } from '../lib/motion.js'
 export default function RoutesPage() {
   const { t } = useLanguage()
   const rp = t('routesPage')
-  const [selectedId, setSelectedId] = useState(DELIVERY_ROUTES[0].id)
+  const [selectedId, setSelectedId] = useState(
+    DELIVERY_ROUTES.find((r) => r.active !== false)?.id ?? DELIVERY_ROUTES[0].id,
+  )
   const route = getRouteById(selectedId)
   const info = rp.routes[route.id]
+  const isRouteActive = route.active !== false
 
   const waHref = `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(
     `Hola, quiero consultar la ruta de ${info.name} y horarios de entrega.`,
@@ -86,7 +89,7 @@ export default function RoutesPage() {
                     className={`relative rounded-full px-5 py-2.5 text-sm font-extrabold transition-colors duration-200 ring-1 ${
                       selectedId === item.id
                         ? 'text-brand-blue ring-white'
-                        : 'text-white ring-white/30 hover:bg-white/25'
+                        : 'text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.45)] ring-white/50 hover:bg-slate-900/55'
                     }`}
                   >
                     {selectedId === item.id ? (
@@ -96,17 +99,32 @@ export default function RoutesPage() {
                         transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                       />
                     ) : (
-                      <span className="absolute inset-0 -z-10 rounded-full bg-white/15" aria-hidden="true" />
+                      <span
+                        className="absolute inset-0 -z-10 rounded-full bg-slate-900/40 backdrop-blur-sm"
+                        aria-hidden="true"
+                      />
                     )}
                     {rp.routes[item.id].label}
+                    {item.active === false ? (
+                      <span className="ml-2 inline-flex items-center rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-amber-950">
+                        {rp.inactiveBadge}
+                      </span>
+                    ) : null}
                   </motion.button>
                 ))}
               </div>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button as="a" href={waHref} target="_blank" rel="noreferrer" variant="whatsapp">
-                  {rp.requestRoute} {info.name}
-                </Button>
+                {isRouteActive ? (
+                  <Button as="a" href={waHref} target="_blank" rel="noreferrer" variant="whatsapp">
+                    {rp.requestRoute} {info.name}
+                  </Button>
+                ) : (
+                  <div className="inline-flex items-center gap-2 rounded-xl bg-white/15 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/30">
+                    <AlertTriangle className="h-4 w-4" />
+                    {rp.routeUnavailable}
+                  </div>
+                )}
                 <Button as="link" to="/contacto" variant="inverse">
                   {rp.viewContact}
                 </Button>
@@ -121,8 +139,14 @@ export default function RoutesPage() {
                   className="mx-auto h-28 w-auto rounded-xl bg-white p-3"
                 />
                 <div className="mt-4 grid gap-3 text-sm text-slate-700">
-                  <div className="rounded-2xl bg-slate-50 px-4 py-3 ring-1 ring-slate-200 shadow-soft">
-                    {rp.activeRoute}: <strong>{info.name}</strong>
+                  <div
+                    className={`rounded-2xl px-4 py-3 ring-1 shadow-soft ${
+                      isRouteActive
+                        ? 'bg-slate-50 ring-slate-200'
+                        : 'bg-amber-50 text-amber-900 ring-amber-200'
+                    }`}
+                  >
+                    {isRouteActive ? rp.activeRoute : rp.inactiveRoute}: <strong>{info.name}</strong>
                   </div>
                   <div className="rounded-2xl bg-slate-50 px-4 py-3 ring-1 ring-slate-200 shadow-soft">
                     {info.schedule}
@@ -165,6 +189,15 @@ export default function RoutesPage() {
                 ) : null}
                 <MapPin className="h-4 w-4" />
                 {rp.routes[item.id].name}
+                {item.active === false ? (
+                  <span
+                    className={`ml-1 inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide ${
+                      selectedId === item.id ? 'bg-white/25 text-white' : 'bg-amber-100 text-amber-700'
+                    }`}
+                  >
+                    {rp.inactiveBadge}
+                  </span>
+                ) : null}
               </motion.button>
             ))}
           </div>
@@ -177,6 +210,13 @@ export default function RoutesPage() {
               exit={{ opacity: 0, y: -18 }}
               transition={{ duration: 0.35, ease: 'easeOut' }}
             >
+              {!isRouteActive ? (
+                <div className="mt-8 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm font-semibold text-amber-900 shadow-soft">
+                  <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" />
+                  <span>{rp.inactiveNotice}</span>
+                </div>
+              ) : null}
+
               <div className="mt-10 grid gap-6 lg:grid-cols-2">
                 <figure className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card">
                   <img
@@ -272,24 +312,34 @@ export default function RoutesPage() {
                     </p>
                   </article>
 
-                  <div className="rounded-2xl bg-brand-gradient p-[1px] shadow-soft">
+                  <div
+                    className={`rounded-2xl p-[1px] shadow-soft ${
+                      isRouteActive ? 'bg-brand-gradient' : 'bg-amber-300'
+                    }`}
+                  >
                     <div className="rounded-2xl bg-white p-5">
                       <h2 className="text-base font-extrabold text-slate-900">
                         {rp.consultTitle} {info.name}
                       </h2>
                       <p className="mt-2 text-sm text-slate-600">
-                        {rp.consultText} {info.name}.
+                        {isRouteActive ? `${rp.consultText} ${info.name}.` : rp.inactiveNotice}
                       </p>
-                      <Button
-                        as="a"
-                        href={waHref}
-                        target="_blank"
-                        rel="noreferrer"
-                        variant="primary"
-                        className="mt-4 w-full"
-                      >
-                        {rp.consultButton}
-                      </Button>
+                      {isRouteActive ? (
+                        <Button
+                          as="a"
+                          href={waHref}
+                          target="_blank"
+                          rel="noreferrer"
+                          variant="primary"
+                          className="mt-4 w-full"
+                        >
+                          {rp.consultButton}
+                        </Button>
+                      ) : (
+                        <Button as="link" to="/contacto" variant="secondary" className="mt-4 w-full">
+                          {rp.viewContact}
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </div>

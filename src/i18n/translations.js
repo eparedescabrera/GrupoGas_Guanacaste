@@ -315,6 +315,11 @@ export const translations = {
       requestRoute: 'Solicitar ruta',
       viewContact: 'Ver contacto',
       activeRoute: 'Ruta activa',
+      inactiveRoute: 'Ruta inactiva',
+      inactiveBadge: 'Inactiva',
+      inactiveNotice:
+        'Esta ruta está temporalmente inactiva. Contáctanos para consultar otras opciones de entrega en tu zona.',
+      routeUnavailable: 'Ruta no disponible',
       sectionEyebrow: 'Rutas Activas',
       sectionTitle: 'Entregas en',
       galleryTitle: 'Galería de fotos',
@@ -668,6 +673,11 @@ export const translations = {
       requestRoute: 'Request route',
       viewContact: 'View contact',
       activeRoute: 'Active route',
+      inactiveRoute: 'Inactive route',
+      inactiveBadge: 'Inactive',
+      inactiveNotice:
+        'This route is temporarily inactive. Contact us to check other delivery options in your area.',
+      routeUnavailable: 'Route unavailable',
       sectionEyebrow: 'Active Routes',
       sectionTitle: 'Deliveries in',
       galleryTitle: 'Photo gallery',
