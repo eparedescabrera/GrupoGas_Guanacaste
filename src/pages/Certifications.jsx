@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { FileBadge2, FolderCheck, ShieldCheck } from 'lucide-react'
-import CtaSection from '../components/sections/CtaSection.jsx'
 import Container from '../components/ui/Container.jsx'
 import PageHero from '../components/ui/PageHero.jsx'
 import Card from '../components/ui/Card.jsx'
@@ -58,7 +57,6 @@ export default function Certifications() {
           </motion.div>
         </Container>
       </section>
-      <CtaSection />
     </>
   )
 }

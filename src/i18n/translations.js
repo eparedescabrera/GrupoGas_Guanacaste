@@ -231,6 +231,18 @@ export const translations = {
       prev: 'Testimonio anterior',
       next: 'Siguiente testimonio',
     },
+    video: {
+      eyebrow: 'Proceso de llenado',
+      title: 'Así llenamos tu cilindro de gas',
+      subtitle:
+        'Conoce de cerca cómo llenamos cada cilindro: revisión previa, equipo certificado y control de calidad antes de llegar a tus manos.',
+      watchOnYoutube: 'Ver el proceso en YouTube',
+      bullets: [
+        'Revisión de cada cilindro antes de llenarlo',
+        'Llenado con equipo certificado y seguro',
+        'Control de calidad antes de cada entrega',
+      ],
+    },
     testimonialModal: {
       kicker: 'Tu opinión cuenta',
       title: 'Comparte tu experiencia',
@@ -588,6 +600,18 @@ export const translations = {
       empty: 'No testimonials yet. Be the first to share your experience!',
       prev: 'Previous testimonial',
       next: 'Next testimonial',
+    },
+    video: {
+      eyebrow: 'Filling process',
+      title: 'This is how we fill your gas cylinder',
+      subtitle:
+        'Take a closer look at how we fill every cylinder: prior inspection, certified equipment and quality control before it reaches you.',
+      watchOnYoutube: 'Watch the process on YouTube',
+      bullets: [
+        'Every cylinder is inspected before filling',
+        'Filled with certified, safe equipment',
+        'Quality control before every delivery',
+      ],
     },
     testimonialModal: {
       kicker: 'Your opinion matters',

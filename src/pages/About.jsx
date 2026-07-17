@@ -1,6 +1,5 @@
 import { Helmet } from 'react-helmet-async'
 import WhyUsSection from '../components/sections/WhyUsSection.jsx'
-import CtaSection from '../components/sections/CtaSection.jsx'
 import PageHero from '../components/ui/PageHero.jsx'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 
@@ -19,7 +18,6 @@ export default function About() {
         subtitle={p.heroSubtitle}
       />
       <WhyUsSection />
-      <CtaSection />
     </>
   )
 }
