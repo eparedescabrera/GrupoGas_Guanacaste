@@ -41,10 +41,10 @@ export default function MapSection() {
                   <MapPin className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="text-base font-extrabold text-slate-900">
+                  <div className="text-base font-extrabold text-slate-900 dark:text-white">
                     {t('map.addressTitle')}
                   </div>
-                  <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                  <p className="mt-2 text-sm text-slate-600 leading-relaxed dark:text-slate-400">
                     {SITE.addressLines.join(' · ')}
                   </p>
                 </div>

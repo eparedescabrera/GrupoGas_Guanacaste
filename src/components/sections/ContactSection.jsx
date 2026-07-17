@@ -115,7 +115,7 @@ export default function ContactSection({ showHeading = true }) {
                   placeholder={c.emailPlaceholder}
                 />
                 <div>
-                  <label htmlFor="message" className="text-sm font-semibold text-slate-700">
+                  <label htmlFor="message" className="text-sm font-semibold text-slate-700 dark:text-slate-300">
                     {c.messageLabel}
                   </label>
                   <textarea
@@ -138,17 +138,17 @@ export default function ContactSection({ showHeading = true }) {
 
           <div className="lg:col-span-5 grid gap-6">
             <Card className="p-6 sm:p-8" hover={false}>
-              <div className="text-base font-extrabold text-slate-900">{c.directTitle}</div>
-              <ul className="mt-4 grid gap-3 text-sm text-slate-600">
+              <div className="text-base font-extrabold text-slate-900 dark:text-white">{c.directTitle}</div>
+              <ul className="mt-4 grid gap-3 text-sm text-slate-600 dark:text-slate-400">
                 <li className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-brand-blue2" />
-                  <a href={`tel:${SITE.phoneTel}`} className="hover:text-slate-900">
+                  <a href={`tel:${SITE.phoneTel}`} className="hover:text-slate-900 dark:hover:text-white">
                     {SITE.phoneDisplay}
                   </a>
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-brand-blue2" />
-                  <a href={`mailto:${SITE.email}`} className="hover:text-slate-900">
+                  <a href={`mailto:${SITE.email}`} className="hover:text-slate-900 dark:hover:text-white">
                     {SITE.email}
                   </a>
                 </li>
@@ -166,14 +166,14 @@ export default function ContactSection({ showHeading = true }) {
               </Button>
             </Card>
 
-            <Card className="p-6 sm:p-8 bg-surface-50" hover={false}>
+            <Card className="p-6 sm:p-8 bg-surface-50 dark:bg-slate-800/60" hover={false}>
               <div className="flex items-center gap-3">
                 <div className="icon-well icon-well-green">
                   <Clock3 className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="text-sm font-extrabold text-slate-900">{c.hoursTitle}</div>
-                  <p className="mt-1 text-sm text-slate-600 leading-relaxed">
+                  <div className="text-sm font-extrabold text-slate-900 dark:text-white">{c.hoursTitle}</div>
+                  <p className="mt-1 text-sm text-slate-600 leading-relaxed dark:text-slate-400">
                     {SITE.hours.weekdays}
                     <br />
                     {SITE.hours.sunday}
@@ -191,7 +191,7 @@ export default function ContactSection({ showHeading = true }) {
 function Field({ label, ...props }) {
   return (
     <div>
-      <label htmlFor={props.name} className="text-sm font-semibold text-slate-700">
+      <label htmlFor={props.name} className="text-sm font-semibold text-slate-700 dark:text-slate-300">
         {label}
       </label>
       <input id={props.name} required {...props} className="field-input" />

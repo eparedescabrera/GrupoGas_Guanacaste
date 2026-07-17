@@ -132,23 +132,23 @@ export default function RoutesPage() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-200">
+              <div className="rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-800">
                 <img
                   src={logoGng}
                   alt="Logo oficial de GNG Gas Express"
                   className="mx-auto h-28 w-auto rounded-xl bg-white p-3"
                 />
-                <div className="mt-4 grid gap-3 text-sm text-slate-700">
+                <div className="mt-4 grid gap-3 text-sm text-slate-700 dark:text-slate-300">
                   <div
                     className={`rounded-2xl px-4 py-3 ring-1 shadow-soft ${
                       isRouteActive
-                        ? 'bg-slate-50 ring-slate-200'
-                        : 'bg-amber-50 text-amber-900 ring-amber-200'
+                        ? 'bg-slate-50 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700'
+                        : 'bg-amber-50 text-amber-900 ring-amber-200 dark:bg-amber-500/10 dark:text-amber-300 dark:ring-amber-500/30'
                     }`}
                   >
                     {isRouteActive ? rp.activeRoute : rp.inactiveRoute}: <strong>{info.name}</strong>
                   </div>
-                  <div className="rounded-2xl bg-slate-50 px-4 py-3 ring-1 ring-slate-200 shadow-soft">
+                  <div className="rounded-2xl bg-slate-50 px-4 py-3 ring-1 ring-slate-200 shadow-soft dark:bg-slate-800 dark:ring-slate-700">
                     {info.schedule}
                   </div>
                 </div>
@@ -177,7 +177,7 @@ export default function RoutesPage() {
                 className={`relative inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-bold transition-colors duration-200 ring-1 ${
                   selectedId === item.id
                     ? 'text-white ring-brand-blue'
-                    : 'bg-white text-slate-700 ring-slate-200 hover:bg-slate-50'
+                    : 'bg-white text-slate-700 ring-slate-200 hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-300 dark:ring-slate-800 dark:hover:bg-slate-800'
                 }`}
               >
                 {selectedId === item.id ? (
@@ -211,40 +211,40 @@ export default function RoutesPage() {
               transition={{ duration: 0.35, ease: 'easeOut' }}
             >
               {!isRouteActive ? (
-                <div className="mt-8 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm font-semibold text-amber-900 shadow-soft">
+                <div className="mt-8 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm font-semibold text-amber-900 shadow-soft dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-300">
                   <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" />
                   <span>{rp.inactiveNotice}</span>
                 </div>
               ) : null}
 
               <div className="mt-10 grid gap-6 lg:grid-cols-2">
-                <figure className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card">
+                <figure className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card dark:border-slate-800 dark:bg-slate-900">
                   <img
                     src={route.placeImage}
                     alt={route.placeImageAlt}
                     className="h-64 w-full object-cover sm:h-80"
                   />
-                  <figcaption className="border-t border-slate-100 px-5 py-4">
+                  <figcaption className="border-t border-slate-100 px-5 py-4 dark:border-slate-800">
                     <div className="text-xs font-bold tracking-widest uppercase text-brand-green">
                       {rp.coverageZone}
                     </div>
-                    <p className="mt-1 text-sm font-semibold text-slate-900">
+                    <p className="mt-1 text-sm font-semibold text-slate-900 dark:text-white">
                       {info.region}
                     </p>
                   </figcaption>
                 </figure>
 
-                <figure className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card">
+                <figure className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card dark:border-slate-800 dark:bg-slate-900">
                   <img
                     src={route.deliveryImage}
                     alt={route.deliveryImageAlt}
                     className="h-64 w-full object-cover sm:h-80"
                   />
-                  <figcaption className="border-t border-slate-100 px-5 py-4">
+                  <figcaption className="border-t border-slate-100 px-5 py-4 dark:border-slate-800">
                     <div className="text-xs font-bold tracking-widest uppercase text-brand-blue">
                       {rp.deliveryUnit}
                     </div>
-                    <p className="mt-1 text-sm font-semibold text-slate-900">
+                    <p className="mt-1 text-sm font-semibold text-slate-900 dark:text-white">
                       {rp.deliveryCaption} {info.name}
                     </p>
                   </figcaption>
@@ -268,7 +268,7 @@ export default function RoutesPage() {
                     <motion.div
                       key={line}
                       variants={staggerItem}
-                      className="rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-slate-700 shadow-soft"
+                      className="rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-slate-700 shadow-soft dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
                     >
                       {line}
                     </motion.div>
@@ -288,26 +288,26 @@ export default function RoutesPage() {
                 </motion.div>
 
                 <div className="lg:col-span-5 grid gap-4">
-                  <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
+                  <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-900">
                     <div className="flex items-center gap-2 text-brand-blue">
                       <Truck className="h-5 w-5" />
-                      <h2 className="text-base font-extrabold text-slate-900">
+                      <h2 className="text-base font-extrabold text-slate-900 dark:text-white">
                         {rp.logisticsTitle} {info.name}
                       </h2>
                     </div>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                    <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                       {rp.logisticsText} {info.name} {rp.logisticsTextEnd}
                     </p>
                   </article>
 
-                  <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
+                  <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-900">
                     <div className="flex items-center gap-2 text-brand-green">
                       <ShieldCheck className="h-5 w-5" />
-                      <h2 className="text-base font-extrabold text-slate-900">
+                      <h2 className="text-base font-extrabold text-slate-900 dark:text-white">
                         {rp.safetyTitle}
                       </h2>
                     </div>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                    <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                       {rp.safetyText}
                     </p>
                   </article>
@@ -317,11 +317,11 @@ export default function RoutesPage() {
                       isRouteActive ? 'bg-brand-gradient' : 'bg-amber-300'
                     }`}
                   >
-                    <div className="rounded-2xl bg-white p-5">
-                      <h2 className="text-base font-extrabold text-slate-900">
+                    <div className="rounded-2xl bg-white p-5 dark:bg-slate-900">
+                      <h2 className="text-base font-extrabold text-slate-900 dark:text-white">
                         {rp.consultTitle} {info.name}
                       </h2>
-                      <p className="mt-2 text-sm text-slate-600">
+                      <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
                         {isRouteActive ? `${rp.consultText} ${info.name}.` : rp.inactiveNotice}
                       </p>
                       {isRouteActive ? (

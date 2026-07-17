@@ -81,7 +81,7 @@ function TestimonialsCarousel({ testimonials, labels }) {
 
   if (testimonials.length === 0) {
     return (
-      <Card className="mx-auto max-w-2xl p-8 text-center text-sm text-slate-600">
+      <Card className="mx-auto max-w-2xl p-8 text-center text-sm text-slate-600 dark:text-slate-400">
         {labels.empty}
       </Card>
     )
@@ -110,7 +110,7 @@ function TestimonialsCarousel({ testimonials, labels }) {
             <button
               type="button"
               onClick={() => goTo(index - 1)}
-              className="absolute left-0 top-1/2 z-10 -translate-x-2 -translate-y-1/2 rounded-full bg-white p-2.5 text-slate-700 shadow-soft ring-1 ring-slate-200 hover:bg-slate-50 sm:-translate-x-4"
+              className="absolute left-0 top-1/2 z-10 -translate-x-2 -translate-y-1/2 rounded-full bg-white p-2.5 text-slate-700 shadow-soft ring-1 ring-slate-200 hover:bg-slate-50 sm:-translate-x-4 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700 dark:hover:bg-slate-700"
               aria-label={labels.prev}
             >
               <ChevronLeft className="h-5 w-5" />
@@ -118,7 +118,7 @@ function TestimonialsCarousel({ testimonials, labels }) {
             <button
               type="button"
               onClick={() => goTo(index + 1)}
-              className="absolute right-0 top-1/2 z-10 translate-x-2 -translate-y-1/2 rounded-full bg-white p-2.5 text-slate-700 shadow-soft ring-1 ring-slate-200 hover:bg-slate-50 sm:translate-x-4"
+              className="absolute right-0 top-1/2 z-10 translate-x-2 -translate-y-1/2 rounded-full bg-white p-2.5 text-slate-700 shadow-soft ring-1 ring-slate-200 hover:bg-slate-50 sm:translate-x-4 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700 dark:hover:bg-slate-700"
               aria-label={labels.next}
             >
               <ChevronRight className="h-5 w-5" />
@@ -137,14 +137,14 @@ function TestimonialsCarousel({ testimonials, labels }) {
             >
               <Card className="p-8 sm:p-10 text-center">
                 <Quote className="mx-auto h-7 w-7 text-brand-blue2" />
-                <p className="mt-5 text-base sm:text-lg leading-relaxed text-slate-700">
+                <p className="mt-5 text-base sm:text-lg leading-relaxed text-slate-700 dark:text-slate-300">
                   “{current.quote}”
                 </p>
                 <div className="mt-8">
-                  <div className="text-base font-extrabold text-slate-900">
+                  <div className="text-base font-extrabold text-slate-900 dark:text-white">
                     {current.name}
                   </div>
-                  <div className="mt-1 text-sm font-semibold text-slate-500">
+                  <div className="mt-1 text-sm font-semibold text-slate-500 dark:text-slate-400">
                     {current.role}
                   </div>
                 </div>
@@ -164,7 +164,7 @@ function TestimonialsCarousel({ testimonials, labels }) {
               className={`h-2.5 rounded-full transition-all duration-300 ${
                 i === index
                   ? 'w-8 bg-brand-blue'
-                  : 'w-2.5 bg-slate-300 hover:bg-slate-400'
+                  : 'w-2.5 bg-slate-300 hover:bg-slate-400 dark:bg-slate-700 dark:hover:bg-slate-600'
               }`}
               aria-label={`Ver testimonio de ${t.name}`}
               aria-current={i === index ? 'true' : undefined}

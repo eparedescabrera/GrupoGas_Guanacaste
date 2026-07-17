@@ -8,9 +8,10 @@ import Button from '../ui/Button.jsx'
 import Container from '../ui/Container.jsx'
 import LanguageSwitcher from './LanguageSwitcher.jsx'
 import Logo from './Logo.jsx'
+import ThemeToggle from './ThemeToggle.jsx'
 
 const navItemBase =
-  'relative z-10 inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-semibold text-slate-600 hover:text-brand-blue transition-colors'
+  'relative z-10 inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-semibold text-slate-600 hover:text-brand-blue transition-colors dark:text-slate-300 dark:hover:text-white'
 
 function TopNavLink({ to, children, onClick }) {
   return (
@@ -63,8 +64,8 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 border-b transition-all duration-300 ${
         scrolled
-          ? 'border-slate-200/90 bg-white/95 shadow-soft backdrop-blur-md'
-          : 'border-transparent bg-white/80 backdrop-blur-sm'
+          ? 'border-slate-200/90 bg-white/95 shadow-soft backdrop-blur-md dark:border-slate-800/90 dark:bg-slate-950/95'
+          : 'border-transparent bg-white/80 backdrop-blur-sm dark:bg-slate-950/80'
       }`}
     >
       <motion.div
@@ -80,7 +81,7 @@ export default function Navbar() {
             </motion.div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-1 rounded-full bg-white px-2 py-2 ring-1 ring-slate-200/90 shadow-soft">
+          <nav className="hidden lg:flex items-center gap-1 rounded-full bg-white px-2 py-2 ring-1 ring-slate-200/90 shadow-soft dark:bg-slate-900 dark:ring-slate-800">
             <TopNavLink to="/">{t('nav.home')}</TopNavLink>
             <TopNavLink to="/nosotros">{t('nav.about')}</TopNavLink>
             <TopNavLink to="/productos">{t('nav.products')}</TopNavLink>
@@ -107,13 +108,13 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -6, scale: 0.97 }}
                     transition={{ duration: 0.16, ease: 'easeOut' }}
-                    className="absolute left-0 mt-3 w-64 rounded-2xl bg-white shadow-card ring-1 ring-slate-200 p-2 origin-top"
+                    className="absolute left-0 mt-3 w-64 rounded-2xl bg-white shadow-card ring-1 ring-slate-200 p-2 origin-top dark:bg-slate-900 dark:ring-slate-800"
                   >
                     {services.map((s) => (
                       <NavLink
                         key={s.label}
                         to={s.to}
-                        className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-surface-50 hover:text-brand-blue"
+                        className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-surface-50 hover:text-brand-blue dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
                         role="menuitem"
                         onClick={() => setServicesOpen(false)}
                       >
@@ -130,6 +131,7 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-2.5">
+            <ThemeToggle />
             <LanguageSwitcher />
             <motion.a
               href={waHref}
@@ -148,11 +150,12 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
             <LanguageSwitcher />
             <motion.button
               type="button"
               whileTap={{ scale: 0.92 }}
-              className="inline-flex items-center justify-center rounded-xl p-2.5 ring-1 ring-slate-200 bg-white shadow-soft hover:bg-slate-50"
+              className="inline-flex items-center justify-center rounded-xl p-2.5 ring-1 ring-slate-200 bg-white shadow-soft hover:bg-slate-50 dark:bg-slate-900 dark:ring-slate-800 dark:text-white dark:hover:bg-slate-800"
               aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
               onClick={() => setMobileOpen((v) => !v)}
             >
@@ -181,7 +184,7 @@ export default function Navbar() {
               transition={{ duration: 0.25, ease: 'easeInOut' }}
               className="lg:hidden overflow-hidden"
             >
-              <div className="mt-4 rounded-2xl bg-white shadow-card ring-1 ring-slate-200 p-4">
+              <div className="mt-4 rounded-2xl bg-white shadow-card ring-1 ring-slate-200 p-4 dark:bg-slate-900 dark:ring-slate-800">
                 <div className="grid gap-3">
                   <TopNavLink to="/" onClick={() => setMobileOpen(false)}>
                     {t('nav.home')}

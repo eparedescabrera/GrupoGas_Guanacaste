@@ -69,10 +69,10 @@ export default function ServicesSection({ showHeading = true, limit, viewAllHref
                       <Icon className="h-5 w-5" />
                     </div>
                     <div className="min-w-0">
-                      <div className="text-base font-extrabold text-slate-900">
+                      <div className="text-base font-extrabold text-slate-900 dark:text-white">
                         {info.title}
                       </div>
-                      <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                      <p className="mt-2 text-sm text-slate-600 leading-relaxed dark:text-slate-400">
                         {info.description}
                       </p>
                     </div>

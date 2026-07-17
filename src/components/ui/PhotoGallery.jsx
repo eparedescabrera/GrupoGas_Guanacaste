@@ -57,7 +57,7 @@ export default function PhotoGallery({ photos = [], title }) {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => setOpenIndex(i)}
-            className="group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-soft"
+            className="group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-soft dark:border-slate-800 dark:bg-slate-800"
           >
             <img
               src={photo.src}

@@ -46,8 +46,8 @@ export default function Certifications() {
                     <div className="icon-well icon-well-blue">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <h2 className="mt-5 text-base font-extrabold text-slate-900">{item.title}</h2>
-                    <p className="mt-2 text-sm font-medium text-slate-600 leading-relaxed">
+                    <h2 className="mt-5 text-base font-extrabold text-slate-900 dark:text-white">{item.title}</h2>
+                    <p className="mt-2 text-sm font-medium text-slate-600 leading-relaxed dark:text-slate-400">
                       {item.text}
                     </p>
                   </Card>

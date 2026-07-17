@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-brand-blue: #202b8f;
   --color-brand-blue2: #3f4fc2;
@@ -23,9 +25,16 @@
   --ink: #0f172a;
 }
 
+.dark {
+  color-scheme: dark;
+  --page-bg: #0b1120;
+  --ink: #e6eaf5;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: var(--page-bg);
+  transition: background-color 0.3s ease;
 }
 
 section[id] {
@@ -46,6 +55,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.65;
   letter-spacing: -0.01em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-image:
+    radial-gradient(ellipse 70% 45% at 0% -10%, rgba(63, 79, 194, 0.16), transparent 55%),
+    radial-gradient(ellipse 55% 40% at 100% 0%, rgba(63, 79, 194, 0.1), transparent 50%),
+    radial-gradient(ellipse 50% 35% at 100% 100%, rgba(10, 122, 61, 0.1), transparent 45%);
 }
 
 :focus-visible {
@@ -69,11 +86,23 @@ body {
 .section-panel {
   background-color: #fff;
   border-block: 1px solid rgb(226 232 240 / 0.7);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .section-panel {
+  background-color: #0f172a;
+  border-block: 1px solid rgb(51 65 85 / 0.5);
 }
 
 .section-muted {
   background-color: rgb(247 248 252 / 0.92);
   border-block: 1px solid rgb(226 232 240 / 0.55);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .section-muted {
+  background-color: rgb(15 23 42 / 0.55);
+  border-block: 1px solid rgb(51 65 85 / 0.4);
 }
 
 .section-clear {
@@ -87,6 +116,11 @@ body {
   --tw-ring-color: #d8dff0;
 }
 
+.dark .icon-well {
+  background: linear-gradient(180deg, #1e293b 0%, #172033 100%);
+  --tw-ring-color: #334155;
+}
+
 .group:hover .icon-well {
   transform: scale(1.1) rotate(-4deg);
 }
@@ -95,15 +129,28 @@ body {
   color: #202b8f;
 }
 
+.dark .icon-well-blue {
+  color: #8ea2ff;
+}
+
 .icon-well-green {
   color: #0a7a3d;
 }
 
+.dark .icon-well-green {
+  color: #4fd897;
+}
+
 .field-input {
-  @apply mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition;
+  @apply mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition dark:border-slate-700 dark:bg-slate-800 dark:text-white;
 }
 
 .field-input:focus {
   border-color: transparent;
   box-shadow: 0 0 0 2px rgba(63, 79, 194, 0.35);
+}
+
+.dark ::selection {
+  background: #3f4fc2;
+  color: #fff;
 }

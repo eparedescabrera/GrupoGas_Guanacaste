@@ -67,15 +67,15 @@ export default function ScheduleSection() {
           <div className="lg:col-span-7">
             <Card className="p-6 sm:p-8 h-full">
               <div className="flex items-center justify-between gap-4 flex-wrap">
-                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3">
                   <div className="icon-well icon-well-blue">
                     <Clock className="h-5 w-5" />
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-slate-600">
+                    <div className="text-sm font-semibold text-slate-600 dark:text-slate-400">
                       {s.currentStatus}
                     </div>
-                    <div className="flex items-center gap-2 text-lg font-extrabold text-slate-900">
+                    <div className="flex items-center gap-2 text-lg font-extrabold text-slate-900 dark:text-white">
                       <span className="relative inline-flex h-2.5 w-2.5">
                         <span
                           className={`absolute inline-flex h-full w-full rounded-full opacity-75 ${DOT_TONE[status.tone] ?? 'bg-slate-400'} animate-ping`}
@@ -91,24 +91,24 @@ export default function ScheduleSection() {
                 <Badge tone={status.tone}>{status.label}</Badge>
               </div>
 
-              <div className="mt-5 text-sm text-slate-600 leading-relaxed">
+              <div className="mt-5 text-sm text-slate-600 leading-relaxed dark:text-slate-400">
                 {status.detail}
               </div>
 
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl bg-surface-100 ring-1 ring-surface-200 p-4">
-                  <div className="text-xs font-bold tracking-widest text-slate-500 uppercase">
+                <div className="rounded-2xl bg-surface-100 ring-1 ring-surface-200 p-4 dark:bg-slate-800 dark:ring-slate-700">
+                  <div className="text-xs font-bold tracking-widest text-slate-500 uppercase dark:text-slate-400">
                     {s.weekdaysLabel}
                   </div>
-                  <div className="mt-2 text-sm font-extrabold text-slate-900">
+                  <div className="mt-2 text-sm font-extrabold text-slate-900 dark:text-white">
                     {s.weekdaysHours}
                   </div>
                 </div>
-                <div className="rounded-2xl bg-surface-100 ring-1 ring-surface-200 p-4">
-                  <div className="text-xs font-bold tracking-widest text-slate-500 uppercase">
+                <div className="rounded-2xl bg-surface-100 ring-1 ring-surface-200 p-4 dark:bg-slate-800 dark:ring-slate-700">
+                  <div className="text-xs font-bold tracking-widest text-slate-500 uppercase dark:text-slate-400">
                     {s.sundayLabel}
                   </div>
-                  <div className="mt-2 text-sm font-extrabold text-slate-900">
+                  <div className="mt-2 text-sm font-extrabold text-slate-900 dark:text-white">
                     {s.sundayHours}
                   </div>
                 </div>

@@ -117,25 +117,25 @@ export default function TestimonialSubmitModal({ open, onClose, onSubmit }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="relative w-full max-w-lg rounded-3xl bg-white shadow-card ring-1 ring-slate-200"
+        className="relative w-full max-w-lg rounded-3xl bg-white shadow-card ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-800"
       >
-        <div className="flex items-start justify-between gap-4 border-b border-slate-100 px-6 py-5">
+        <div className="flex items-start justify-between gap-4 border-b border-slate-100 px-6 py-5 dark:border-slate-800">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-brand-green/10 px-3 py-1 text-xs font-bold text-brand-green ring-1 ring-brand-green/20">
+            <div className="inline-flex items-center gap-2 rounded-full bg-brand-green/10 px-3 py-1 text-xs font-bold text-brand-green ring-1 ring-brand-green/20 dark:bg-brand-green/15">
               <MessageSquarePlus className="h-3.5 w-3.5" />
               {m.kicker}
             </div>
-            <h3 id={titleId} className="mt-3 text-xl font-extrabold text-slate-900">
+            <h3 id={titleId} className="mt-3 text-xl font-extrabold text-slate-900 dark:text-white">
               {m.title}
             </h3>
-            <p className="mt-1 text-sm text-slate-600">
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
               {m.subtitle}
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="rounded-xl p-2 text-slate-500 ring-1 ring-slate-200 hover:bg-slate-50 hover:text-slate-900"
+            className="rounded-xl p-2 text-slate-500 ring-1 ring-slate-200 hover:bg-slate-50 hover:text-slate-900 dark:ring-slate-700 dark:hover:bg-slate-800 dark:hover:text-white"
             aria-label={m.close}
           >
             <X className="h-4 w-4" />
@@ -152,7 +152,7 @@ export default function TestimonialSubmitModal({ open, onClose, onSubmit }) {
           />
 
           <div>
-            <label htmlFor="role" className="text-sm font-semibold text-slate-700">
+            <label htmlFor="role" className="text-sm font-semibold text-slate-700 dark:text-slate-300">
               {m.roleLabel}
             </label>
             <select
@@ -160,7 +160,7 @@ export default function TestimonialSubmitModal({ open, onClose, onSubmit }) {
               name="role"
               value={m.roles.includes(form.role) ? form.role : m.roles[0]}
               onChange={onChange}
-              className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-brand-blue2"
+              className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-brand-blue2 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             >
               {m.roles.map((role) => (
                 <option key={role} value={role}>
@@ -171,7 +171,7 @@ export default function TestimonialSubmitModal({ open, onClose, onSubmit }) {
           </div>
 
           <div>
-            <label htmlFor="quote" className="text-sm font-semibold text-slate-700">
+            <label htmlFor="quote" className="text-sm font-semibold text-slate-700 dark:text-slate-300">
               {m.quoteLabel}
             </label>
             <textarea
@@ -180,7 +180,7 @@ export default function TestimonialSubmitModal({ open, onClose, onSubmit }) {
               rows={4}
               value={form.quote}
               onChange={onChange}
-              className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-brand-blue2"
+              className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-brand-blue2 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
               placeholder={m.quotePlaceholder}
               required
             />
@@ -203,14 +203,14 @@ export default function TestimonialSubmitModal({ open, onClose, onSubmit }) {
 function Field({ label, ...props }) {
   return (
     <div>
-      <label htmlFor={props.name} className="text-sm font-semibold text-slate-700">
+      <label htmlFor={props.name} className="text-sm font-semibold text-slate-700 dark:text-slate-300">
         {label}
       </label>
       <input
         id={props.name}
         required
         {...props}
-        className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-brand-blue2"
+        className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-brand-blue2 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
       />
     </div>
   )

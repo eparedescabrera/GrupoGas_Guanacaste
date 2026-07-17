@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom'
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue2 focus-visible:ring-offset-2 ring-offset-white disabled:opacity-60 disabled:pointer-events-none'
+  'inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue2 focus-visible:ring-offset-2 ring-offset-white dark:ring-offset-slate-950 disabled:opacity-60 disabled:pointer-events-none'
 
 const variants = {
   primary:
     'bg-brand-blue text-white shadow-soft hover:bg-brand-blue2 hover:-translate-y-0.5 hover:shadow-card active:translate-y-[1px]',
   secondary:
-    'bg-white text-slate-900 shadow-soft ring-1 ring-slate-200 hover:ring-slate-300 hover:bg-slate-50 hover:-translate-y-0.5',
+    'bg-white text-slate-900 shadow-soft ring-1 ring-slate-200 hover:ring-slate-300 hover:bg-slate-50 hover:-translate-y-0.5 dark:bg-slate-800 dark:text-white dark:ring-slate-700 dark:hover:bg-slate-700 dark:hover:ring-slate-600',
   ghost:
-    'bg-transparent text-slate-900 hover:bg-slate-100 ring-1 ring-transparent hover:ring-slate-200',
+    'bg-transparent text-slate-900 hover:bg-slate-100 ring-1 ring-transparent hover:ring-slate-200 dark:text-white dark:hover:bg-slate-800 dark:hover:ring-slate-700',
   inverse:
     'bg-white text-brand-blue shadow-soft hover:bg-slate-50 hover:-translate-y-0.5 hover:shadow-card active:translate-y-[1px]',
   whatsapp:
