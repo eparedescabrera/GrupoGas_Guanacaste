@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #202b8f;
+  --color-brand-blue2: #3f4fc2;
+  --color-brand-green: #0a7a3d;
+  --color-surface-50: #f7f8fc;
+  --color-surface-100: #eef1f8;
+  --color-surface-200: #d8dff0;
+  --shadow-soft: 0 10px 28px rgba(18, 34, 92, 0.08);
+  --shadow-card: 0 18px 46px rgba(17, 28, 82, 0.14);
+  --background-image-brand-gradient: linear-gradient(
+    135deg,
+    #202b8f 0%,
+    #3f4fc2 55%,
+    #0a7a3d 125%
+  );
+}
+
+:root {
+  color-scheme: light;
+  --page-bg: #e8ecf5;
+  --ink: #0f172a;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--page-bg);
+}
+
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+body {
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  min-height: 100%;
+  color: var(--ink);
+  background-color: var(--page-bg);
+  background-image:
+    radial-gradient(ellipse 70% 45% at 0% -10%, rgba(32, 43, 143, 0.12), transparent 55%),
+    radial-gradient(ellipse 55% 40% at 100% 0%, rgba(63, 79, 194, 0.08), transparent 50%),
+    radial-gradient(ellipse 50% 35% at 100% 100%, rgba(10, 122, 61, 0.07), transparent 45%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(63, 79, 194, 0.75);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #c7d2fe;
+  color: #0f172a;
+}
+
+#app {
+  @apply min-h-screen;
+}
+
+.section-shell {
+  @apply py-16 sm:py-20 lg:py-24;
+}
+
+.section-panel {
+  background-color: #fff;
+  border-block: 1px solid rgb(226 232 240 / 0.7);
+}
+
+.section-muted {
+  background-color: rgb(247 248 252 / 0.92);
+  border-block: 1px solid rgb(226 232 240 / 0.55);
+}
+
+.section-clear {
+  background: transparent;
+}
+
+.icon-well {
+  @apply h-11 w-11 shrink-0 rounded-2xl grid place-items-center ring-1 shadow-soft transition-transform duration-300;
+  background: linear-gradient(180deg, #fff 0%, #f1f4fa 100%);
+  border-color: transparent;
+  --tw-ring-color: #d8dff0;
+}
+
+.group:hover .icon-well {
+  transform: scale(1.1) rotate(-4deg);
+}
+
+.icon-well-blue {
+  color: #202b8f;
+}
+
+.icon-well-green {
+  color: #0a7a3d;
+}
+
+.field-input {
+  @apply mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition;
+}
+
+.field-input:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 2px rgba(63, 79, 194, 0.35);
+}
