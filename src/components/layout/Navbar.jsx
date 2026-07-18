@@ -11,11 +11,25 @@ import Logo from './Logo.jsx'
 import ThemeToggle from './ThemeToggle.jsx'
 
 const navItemBase =
-  'relative z-10 inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-semibold text-slate-600 hover:text-brand-blue transition-colors dark:text-slate-300 dark:hover:text-white'
+  'relative z-10 inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-semibold text-slate-600 transition-colors duration-150 select-none touch-manipulation hover:text-brand-blue active:text-brand-blue dark:text-slate-300 dark:hover:text-white dark:active:text-white'
 
 function TopNavLink({ to, children, onClick }) {
+  const [pressed, setPressed] = useState(false)
+
+  const release = () => setPressed(false)
+
   return (
-    <NavLink to={to} onClick={onClick} className={({ isActive }) => `${navItemBase} ${isActive ? 'text-brand-blue' : ''}`}>
+    <NavLink
+      to={to}
+      onClick={onClick}
+      onPointerDown={() => setPressed(true)}
+      onPointerUp={release}
+      onPointerCancel={release}
+      onPointerLeave={release}
+      className={({ isActive }) =>
+        `${navItemBase} ${isActive || pressed ? 'text-brand-blue dark:text-white' : ''}`
+      }
+    >
       {({ isActive }) => (
         <>
           {isActive ? (
@@ -23,6 +37,14 @@ function TopNavLink({ to, children, onClick }) {
               layoutId="navActivePill"
               className="absolute inset-0 -z-10 rounded-full bg-brand-blue/10 ring-1 ring-brand-blue/15"
               transition={{ type: 'spring', stiffness: 420, damping: 32 }}
+            />
+          ) : pressed ? (
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.12 }}
+              className="absolute inset-0 -z-10 rounded-full bg-brand-blue/10 ring-1 ring-brand-blue/15 dark:bg-white/10 dark:ring-white/15"
             />
           ) : null}
           {children}
@@ -91,10 +113,19 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setServicesOpen((v) => !v)}
-                className={`${navItemBase} gap-1.5`}
+                className={`${navItemBase} gap-1.5 ${servicesOpen ? 'text-brand-blue dark:text-white' : ''}`}
                 aria-haspopup="menu"
                 aria-expanded={servicesOpen}
               >
+                {servicesOpen ? (
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.12 }}
+                    className="absolute inset-0 -z-10 rounded-full bg-brand-blue/10 ring-1 ring-brand-blue/15 dark:bg-white/10 dark:ring-white/15"
+                  />
+                ) : null}
                 {t('nav.services')}
                 <motion.span animate={{ rotate: servicesOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
                   <ChevronDown className="h-4 w-4" />
@@ -114,7 +145,7 @@ export default function Navbar() {
                       <NavLink
                         key={s.label}
                         to={s.to}
-                        className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-surface-50 hover:text-brand-blue dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+                        className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 transition-colors duration-150 select-none touch-manipulation hover:bg-surface-50 hover:text-brand-blue active:bg-surface-50 active:text-brand-blue dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white dark:active:bg-slate-800 dark:active:text-white"
                         role="menuitem"
                         onClick={() => setServicesOpen(false)}
                       >

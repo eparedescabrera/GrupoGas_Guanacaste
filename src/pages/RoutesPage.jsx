@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
 import { AnimatePresence, motion } from 'framer-motion'
 import { AlertTriangle, MapPin, Route, ShieldCheck, Truck } from 'lucide-react'
+import Seo from '../components/layout/Seo.jsx'
 import Button from '../components/ui/Button.jsx'
 import Container from '../components/ui/Container.jsx'
 import PhotoGallery from '../components/ui/PhotoGallery.jsx'
@@ -31,13 +31,11 @@ export default function RoutesPage() {
 
   return (
     <>
-      <Helmet>
-        <title>{`${rp.title} · ${info.name}`}</title>
-        <meta
-          name="description"
-          content={`Consulta nuestra ruta de entrega de gas en ${info.name}, Guanacaste. Servicio rápido y seguro.`}
-        />
-      </Helmet>
+      <Seo
+        title={`${rp.title} · ${info.name}`}
+        description={`Consulta nuestra ruta de entrega de gas en ${info.name}, Guanacaste. Servicio rápido y seguro.`}
+        path="/rutas"
+      />
 
       <section className="relative overflow-hidden border-b border-transparent bg-brand-gradient">
         <motion.div

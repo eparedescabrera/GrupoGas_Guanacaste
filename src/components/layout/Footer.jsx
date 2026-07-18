@@ -16,6 +16,7 @@ export default function Footer() {
     ['/productos', t('footer.links.products')],
     ['/servicios', t('footer.links.services')],
     ['/rutas', t('footer.links.routes')],
+    ['/clima', t('footer.links.weather')],
     ['/contacto', t('footer.links.contact')],
   ]
 

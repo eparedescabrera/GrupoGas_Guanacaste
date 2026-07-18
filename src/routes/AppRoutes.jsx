@@ -9,6 +9,7 @@ const Services = lazy(() => import('../pages/Services.jsx'))
 const RoutesPage = lazy(() => import('../pages/RoutesPage.jsx'))
 const Certifications = lazy(() => import('../pages/Certifications.jsx'))
 const Contact = lazy(() => import('../pages/Contact.jsx'))
+const Weather = lazy(() => import('../pages/Weather.jsx'))
 
 function PageFallback() {
   return (
@@ -39,6 +40,7 @@ export default function AppRoutes() {
             <Route path="/rutas" element={<RoutesPage />} />
             <Route path="/certificaciones" element={<Certifications />} />
             <Route path="/contacto" element={<Contact />} />
+            <Route path="/clima" element={<Weather />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </motion.div>

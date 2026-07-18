@@ -31,6 +31,7 @@ export const translations = {
         products: 'Productos',
         services: 'Servicios',
         routes: 'Rutas',
+        weather: 'Clima',
         contact: 'Contacto',
       },
       rights: 'Todos los derechos reservados.',
@@ -187,6 +188,24 @@ export const translations = {
       subtitle: 'Encuéntranos fácilmente y solicita indicaciones para llegar.',
       addressTitle: 'Dirección',
       directions: 'Cómo llegar',
+      coverageEyebrow: 'Cobertura',
+      coverageTitle: 'Nuestras zonas de entrega',
+      coverageSubtitle: 'Un vistazo rápido a nuestra oficina principal y todas las rutas de reparto disponibles.',
+      hqLabel: 'Oficina principal',
+      statusActive: 'Activa',
+      statusInactive: 'Inactiva',
+      viewOnMap: 'Ver en el mapa',
+    },
+    weather: {
+      eyebrow: 'Clima',
+      title: 'Pronóstico del tiempo en Guanacaste',
+      subtitle: 'Consulta el clima antes de tu entrega o visita a nuestra zona de cobertura.',
+      location: 'Nandayure, Guanacaste',
+      loading: 'Cargando clima…',
+      error: 'No se pudo cargar el clima en este momento. Intenta más tarde.',
+      wind: 'Viento',
+      forecastTitle: 'Próximos días',
+      source: 'Datos proporcionados por Open-Meteo.',
     },
     contact: {
       eyebrow: 'Contacto',
@@ -205,6 +224,14 @@ export const translations = {
       directTitle: 'Contacto directo',
       whatsappCta: 'Escribir por WhatsApp',
       hoursTitle: 'Horario de atención',
+      sinpeTitle: 'Pago por SINPE Móvil',
+      sinpeSubtitle: 'Realiza tu pago de forma rápida y segura al siguiente número.',
+      sinpeNumberLabel: 'Número',
+      sinpeNameLabel: 'A nombre de',
+      copy: 'Copiar número',
+      copied: '¡Copiado!',
+      sinpeReceiptNote: 'Una vez realices el pago, envía el comprobante por WhatsApp a este mismo número.',
+      sinpeSendReceipt: 'Enviar comprobante por WhatsApp',
       alerts: {
         incompleteTitle: 'Completa todos los campos',
         incompleteText: 'Por favor revisa el formulario.',
@@ -271,6 +298,8 @@ export const translations = {
     pages: {
       about: {
         title: 'GNG GAS EXPRESS | Nosotros',
+        description:
+          'Conoce a GNG Gas Express: empresa local en Guanacaste enfocada en brindar servicio confiable de gas para hogares, comercios y empresas.',
         eyebrow: 'Nosotros',
         heroTitle: 'Comprometidos con la seguridad y la excelencia',
         heroSubtitle:
@@ -278,18 +307,24 @@ export const translations = {
       },
       products: {
         title: 'GNG GAS EXPRESS | Productos',
+        description:
+          'Cilindros de gas de 20, 25, 30, 35 y 100 libras disponibles para hogares, comercios y empresas en Guanacaste, con entrega rápida y manejo seguro.',
         eyebrow: 'Catálogo',
         heroTitle: 'Cilindros disponibles',
         heroSubtitle: 'Opciones para hogares, comercios y empresas, con entrega rápida y manejo seguro.',
       },
       services: {
         title: 'GNG GAS EXPRESS | Servicios',
+        description:
+          'Servicios de distribución de gas, accesorios, revisiones y certificaciones con atención profesional en Guanacaste.',
         eyebrow: 'Servicios',
         heroTitle: 'Soluciones completas con enfoque en seguridad',
         heroSubtitle: 'Desde accesorios hasta revisiones y certificaciones, con atención profesional.',
       },
       certifications: {
         title: 'GNG GAS EXPRESS | Certificaciones',
+        description:
+          'Certificaciones comerciales, permisos y revisión técnica para el uso seguro de gas en tu negocio en Guanacaste.',
         eyebrow: 'Cumplimiento',
         heroTitle: 'Certificaciones y permisos',
         heroSubtitle: 'Te guiamos para cumplir con los requisitos técnicos de uso de gas en comercios.',
@@ -310,6 +345,8 @@ export const translations = {
       },
       contact: {
         title: 'GNG GAS EXPRESS | Contacto',
+        description:
+          'Contáctanos por WhatsApp, teléfono o formulario. Respondemos con rapidez para coordinar tu entrega de gas en Guanacaste.',
         eyebrow: 'Contacto',
         heroTitle: 'Estamos listos para atenderte',
         heroSubtitle: 'Escríbenos, llámanos o completa el formulario. Respondemos con rapidez.',
@@ -317,6 +354,13 @@ export const translations = {
       home: {
         title: 'GNG GAS EXPRESS | Inicio',
         description: 'Distribución y venta de gas en Guanacaste con atención rápida, segura y confiable.',
+      },
+      weather: {
+        title: 'GNG GAS EXPRESS | Clima',
+        description: 'Consulta el pronóstico del tiempo en Nandayure, Guanacaste, antes de tu entrega de gas.',
+        eyebrow: 'Clima',
+        heroTitle: 'Pronóstico del tiempo en Guanacaste',
+        heroSubtitle: 'Revisa la temperatura actual y el pronóstico de los próximos días en nuestra zona de cobertura.',
       },
     },
     routesPage: {
@@ -405,6 +449,7 @@ export const translations = {
         products: 'Products',
         services: 'Services',
         routes: 'Routes',
+        weather: 'Weather',
         contact: 'Contact',
       },
       rights: 'All rights reserved.',
@@ -558,6 +603,24 @@ export const translations = {
       subtitle: 'Find us easily and request directions to get here.',
       addressTitle: 'Address',
       directions: 'Get directions',
+      coverageEyebrow: 'Coverage',
+      coverageTitle: 'Our delivery zones',
+      coverageSubtitle: 'A quick look at our main office and every delivery route available.',
+      hqLabel: 'Main office',
+      statusActive: 'Active',
+      statusInactive: 'Inactive',
+      viewOnMap: 'View on map',
+    },
+    weather: {
+      eyebrow: 'Weather',
+      title: 'Weather forecast in Guanacaste',
+      subtitle: 'Check the weather before your delivery or visit to our coverage area.',
+      location: 'Nandayure, Guanacaste',
+      loading: 'Loading weather…',
+      error: 'Could not load the weather right now. Please try again later.',
+      wind: 'Wind',
+      forecastTitle: 'Coming days',
+      source: 'Data provided by Open-Meteo.',
     },
     contact: {
       eyebrow: 'Contact',
@@ -576,6 +639,14 @@ export const translations = {
       directTitle: 'Direct contact',
       whatsappCta: 'Message on WhatsApp',
       hoursTitle: 'Business hours',
+      sinpeTitle: 'SINPE Móvil payment',
+      sinpeSubtitle: 'Send your payment quickly and securely to the number below.',
+      sinpeNumberLabel: 'Number',
+      sinpeNameLabel: 'Account name',
+      copy: 'Copy number',
+      copied: 'Copied!',
+      sinpeReceiptNote: 'Once you complete the payment, send the receipt via WhatsApp to this same number.',
+      sinpeSendReceipt: 'Send receipt via WhatsApp',
       alerts: {
         incompleteTitle: 'Complete all fields',
         incompleteText: 'Please review the form.',
@@ -641,6 +712,8 @@ export const translations = {
     pages: {
       about: {
         title: 'GNG GAS EXPRESS | About',
+        description:
+          'Meet GNG Gas Express: a local Guanacaste company focused on providing reliable gas service for homes, businesses and companies.',
         eyebrow: 'About',
         heroTitle: 'Committed to safety and excellence',
         heroSubtitle:
@@ -648,18 +721,24 @@ export const translations = {
       },
       products: {
         title: 'GNG GAS EXPRESS | Products',
+        description:
+          '20, 25, 30, 35 and 100 lb gas cylinders available for homes, businesses and companies in Guanacaste, with fast delivery and safe handling.',
         eyebrow: 'Catalog',
         heroTitle: 'Available cylinders',
         heroSubtitle: 'Options for homes, businesses and companies, with fast delivery and safe handling.',
       },
       services: {
         title: 'GNG GAS EXPRESS | Services',
+        description:
+          'Gas distribution, accessories, inspections and certification services with professional attention in Guanacaste.',
         eyebrow: 'Services',
         heroTitle: 'Complete solutions with a focus on safety',
         heroSubtitle: 'From accessories to inspections and certifications, with professional service.',
       },
       certifications: {
         title: 'GNG GAS EXPRESS | Certifications',
+        description:
+          'Commercial certifications, permits and technical inspections for safe gas use in your business in Guanacaste.',
         eyebrow: 'Compliance',
         heroTitle: 'Certifications and permits',
         heroSubtitle: 'We guide you to meet the technical requirements for gas use in businesses.',
@@ -680,6 +759,8 @@ export const translations = {
       },
       contact: {
         title: 'GNG GAS EXPRESS | Contact',
+        description:
+          'Contact us via WhatsApp, phone or form. We respond quickly to coordinate your gas delivery in Guanacaste.',
         eyebrow: 'Contact',
         heroTitle: "We're ready to help you",
         heroSubtitle: 'Write, call, or fill out the form. We respond quickly.',
@@ -687,6 +768,13 @@ export const translations = {
       home: {
         title: 'GNG GAS EXPRESS | Home',
         description: 'Gas distribution and sales in Guanacaste with fast, safe and reliable service.',
+      },
+      weather: {
+        title: 'GNG GAS EXPRESS | Weather',
+        description: 'Check the weather forecast in Nandayure, Guanacaste, before your gas delivery.',
+        eyebrow: 'Weather',
+        heroTitle: 'Weather forecast in Guanacaste',
+        heroSubtitle: 'Check the current temperature and the forecast for the coming days in our coverage area.',
       },
     },
     routesPage: {

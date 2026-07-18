@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowRight, MessageCircle } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ArrowRight, Loader2, MessageCircle } from 'lucide-react'
 import { SITE } from '../../data/site.js'
+import { useWeather } from '../../hooks/useWeather.js'
 import { useLanguage } from '../../i18n/LanguageContext.jsx'
+import { getWeatherInfo } from '../../lib/weatherCodes.js'
 import cobanoLandscape01 from '../../assets/gallery-cobano/cobano-07.png'
 import cobanoLandscape02 from '../../assets/gallery-cobano/cobano-10.png'
 import cobanoLandscape03 from '../../assets/gallery-cobano/cobano-15.png'
@@ -19,8 +22,9 @@ const HERO_BG_IMAGES = [
 const HERO_BG_INTERVAL_MS = 6000
 
 export default function HeroSection() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const [bgIndex, setBgIndex] = useState(0)
+  const { loading: weatherLoading, current: weather } = useWeather()
 
   useEffect(() => {
     const id = window.setInterval(() => {
@@ -70,6 +74,31 @@ export default function HeroSection() {
         className="absolute inset-0 bg-brand-gradient mix-blend-multiply opacity-[0.12]"
         aria-hidden="true"
       />
+
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+        className="absolute right-4 top-4 z-10 sm:right-6 sm:top-6"
+      >
+        <Link
+          to="/clima"
+          className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3.5 py-2 text-xs font-bold text-white ring-1 ring-white/30 backdrop-blur-md shadow-soft transition-colors hover:bg-white/25"
+          aria-label={t('weather.title')}
+          title={t('weather.title')}
+        >
+          {weatherLoading ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : weather ? (
+            (() => {
+              const { Icon } = getWeatherInfo(weather.code, lang)
+              return <Icon className="h-4 w-4" strokeWidth={2} />
+            })()
+          ) : null}
+          {weather ? <span>{weather.temperature}°C</span> : null}
+          <span className="hidden text-white/85 sm:inline">· {SITE.addressLines[0].split(',')[0]}</span>
+        </Link>
+      </motion.div>
 
       <Container className="relative py-24 sm:py-28 lg:py-36">
         <motion.div

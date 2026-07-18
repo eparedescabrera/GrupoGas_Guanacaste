@@ -1,6 +1,6 @@
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { FileBadge2, FolderCheck, ShieldCheck } from 'lucide-react'
+import Seo from '../components/layout/Seo.jsx'
 import Container from '../components/ui/Container.jsx'
 import PageHero from '../components/ui/PageHero.jsx'
 import Card from '../components/ui/Card.jsx'
@@ -21,9 +21,7 @@ export default function Certifications() {
 
   return (
     <>
-      <Helmet>
-        <title>{p.title}</title>
-      </Helmet>
+      <Seo title={p.title} description={p.description} path="/certificaciones" />
       <PageHero
         eyebrow={p.eyebrow}
         title={p.heroTitle}

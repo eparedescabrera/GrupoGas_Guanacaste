@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import Seo from '../components/layout/Seo.jsx'
 import ContactSection from '../components/sections/ContactSection.jsx'
 import MapSection from '../components/sections/MapSection.jsx'
 import PageHero from '../components/ui/PageHero.jsx'
@@ -15,9 +15,7 @@ export default function Contact() {
 
   return (
     <>
-      <Helmet>
-        <title>{p.title}</title>
-      </Helmet>
+      <Seo title={p.title} description={p.description} path="/contacto" />
       <PageHero
         eyebrow={p.eyebrow}
         title={p.heroTitle}

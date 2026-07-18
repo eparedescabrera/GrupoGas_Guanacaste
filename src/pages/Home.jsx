@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import Seo from '../components/layout/Seo.jsx'
 import HeroSection from '../components/sections/HeroSection.jsx'
 import MapSection from '../components/sections/MapSection.jsx'
 import ProductsSection from '../components/sections/ProductsSection.jsx'
@@ -15,10 +15,7 @@ export default function Home() {
 
   return (
     <>
-      <Helmet>
-        <title>{p.title}</title>
-        <meta name="description" content={p.description} />
-      </Helmet>
+      <Seo title={p.title} description={p.description} path="/" />
       <HeroSection />
       <ProductsSection limit={3} viewAllHref="/productos" />
       <ServicesSection limit={3} viewAllHref="/servicios" />

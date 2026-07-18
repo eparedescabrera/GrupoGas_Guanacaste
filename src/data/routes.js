@@ -17,6 +17,10 @@ import cobanoGaleria12 from '../assets/gallery-cobano/cobano-12.png'
 import cobanoGaleria13 from '../assets/gallery-cobano/cobano-13.png'
 import cobanoGaleria14 from '../assets/gallery-cobano/cobano-14.png'
 import cobanoGaleria15 from '../assets/gallery-cobano/cobano-15.png'
+import cobanoGaleria16 from '../assets/gallery-cobano/cobano-16.png'
+import cobanoGaleria17 from '../assets/gallery-cobano/cobano-17.png'
+import cobanoGaleria18 from '../assets/gallery-cobano/cobano-18.png'
+import cobanoGaleria19 from '../assets/gallery-cobano/cobano-19.png'
 
 const COBANO_GALLERY = [
   { src: cobanoGaleria01, alt: 'Monos congo cruzando el camino de tierra en Cóbano' },
@@ -34,6 +38,10 @@ const COBANO_GALLERY = [
   { src: cobanoGaleria13, alt: 'Turistas y bote de pescadores en la playa' },
   { src: cobanoGaleria14, alt: 'Cancha deportiva junto a la playa con palmeras' },
   { src: cobanoGaleria15, alt: 'Costa rocosa con vista al mar al atardecer' },
+  { src: cobanoGaleria16, alt: 'Langostas frescas sobre mesa de acero en cocina local' },
+  { src: cobanoGaleria17, alt: 'Carretera rumbo a la costa con vista al Golfo de Nicoya' },
+  { src: cobanoGaleria18, alt: 'Rótulo de bienvenida "Black Sheep" en Yoko Village' },
+  { src: cobanoGaleria19, alt: 'Monos cariblanca sobre ramas caídas en la zona de Cóbano' },
 ]
 
 export const DELIVERY_ROUTES = [

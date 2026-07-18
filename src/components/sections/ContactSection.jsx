@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Swal from 'sweetalert2'
-import { Clock3, Mail, MessageCircle, Phone } from 'lucide-react'
+import { Check, Clock3, Copy, Mail, MessageCircle, Phone, Smartphone } from 'lucide-react'
 import { SITE } from '../../data/site.js'
 import { useLanguage } from '../../i18n/LanguageContext.jsx'
 import Button from '../ui/Button.jsx'
@@ -15,14 +15,28 @@ export default function ContactSection({ showHeading = true }) {
   const c = t('contact')
   const [form, setForm] = useState(INITIAL)
   const [submitting, setSubmitting] = useState(false)
+  const [copied, setCopied] = useState(false)
 
   const waHref = `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(
     'Hola, quiero solicitar información.',
+  )}`
+  const sinpeWaHref = `https://wa.me/${SITE.sinpe.whatsappNumber}?text=${encodeURIComponent(
+    'Hola, les envío el comprobante de mi pago por SINPE Móvil.',
   )}`
 
   function onChange(e) {
     const { name, value } = e.target
     setForm((prev) => ({ ...prev, [name]: value }))
+  }
+
+  async function copySinpeNumber() {
+    try {
+      await navigator.clipboard.writeText(SITE.sinpe.number)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 2000)
+    } catch {
+      // clipboard unavailable, ignore silently
+    }
   }
 
   async function onSubmit(e) {
@@ -180,6 +194,61 @@ export default function ContactSection({ showHeading = true }) {
                   </p>
                 </div>
               </div>
+            </Card>
+
+            <Card className="p-6 sm:p-8 bg-brand-gradient text-white" hover={false}>
+              <div className="flex items-center gap-3">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/15 ring-1 ring-white/30">
+                  <Smartphone className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-sm font-extrabold">{c.sinpeTitle}</div>
+                  <p className="mt-0.5 text-xs text-white/85 leading-relaxed">{c.sinpeSubtitle}</p>
+                </div>
+              </div>
+
+              <div className="mt-5 rounded-2xl bg-white/10 p-4 ring-1 ring-white/20">
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-widest text-white/70">
+                      {c.sinpeNumberLabel}
+                    </div>
+                    <div className="mt-1 text-xl font-extrabold tracking-wide">{SITE.sinpe.number}</div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={copySinpeNumber}
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-white px-3 py-2 text-xs font-extrabold text-brand-blue shadow-soft transition hover:brightness-95 active:scale-95"
+                    aria-label={c.copy}
+                  >
+                    {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                    {copied ? c.copied : c.copy}
+                  </button>
+                </div>
+                <div className="mt-3 border-t border-white/15 pt-3">
+                  <div className="text-[11px] font-bold uppercase tracking-widest text-white/70">
+                    {c.sinpeNameLabel}
+                  </div>
+                  <div className="mt-1 text-sm font-bold">{SITE.sinpe.name}</div>
+                </div>
+              </div>
+
+              <p className="mt-4 flex items-start gap-2 text-xs leading-relaxed text-white/90">
+                <MessageCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                {c.sinpeReceiptNote}
+              </p>
+
+              <Button
+                as="a"
+                href={sinpeWaHref}
+                target="_blank"
+                rel="noreferrer"
+                variant="inverse"
+                className="mt-4 w-full justify-center"
+              >
+                <MessageCircle className="h-4 w-4" />
+                {c.sinpeSendReceipt}
+              </Button>
             </Card>
           </div>
         </div>
